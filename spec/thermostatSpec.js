@@ -72,6 +72,7 @@ describe('Thermostat', function() {
       });
 
       it('shows maximum usage of energy, temperature > 25 degrees', function() {
+        thermostat.powerSavingOff();
         for(var i = 0; i < 6 ; i++){
           thermostat.up();
         }
