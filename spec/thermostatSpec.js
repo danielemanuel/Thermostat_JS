@@ -25,7 +25,7 @@ describe('Thermostat', function() {
     for (var i = 0; i < 11; i++){
       thermostat.down();
     }
-    expect(thermostat.getTemperature()).toEqual(10)
+    expect(thermostat.getTemperature()).toEqual(10);
   });
 
   it('can be reset to default', function() {
@@ -69,9 +69,20 @@ describe('Thermostat', function() {
           thermostat.down();
         }
         expect(thermostat.energyUsage()).toEqual('low usage');
-      })
+      });
+
+      it('shows maximum usage of energy, temperature > 25 degrees', function() {
+        for(var i = 0; i < 6 ; i++){
+          thermostat.up();
+        }
+        expect(thermostat.energyUsage()).toEqual('high usage');
+      });
+
+      it('shows medium usage of energy, temp between 25 && 18 ', function() {
+        expect(thermostat.energyUsage()).toEqual('medium usage');
+      });
 
 
-  })
+  });
 
 });
