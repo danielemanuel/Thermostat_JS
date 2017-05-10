@@ -3,6 +3,7 @@
 function Thermostat() {
   this.temperature = 20;
   this.MINIMUM_TEMPERATURE = 10;
+  this.MAXIMUM_TEMPERATURE_PSM = 25;
   this.powerSave = true;
 }
 
@@ -11,6 +12,9 @@ Thermostat.prototype.getTemperature = function() {
 };
 
 Thermostat.prototype.up= function() {
+    if(this.maxTemperature()) {
+      return;
+    }
     return this.temperature +=  1;
 };
 
@@ -19,6 +23,10 @@ Thermostat.prototype.down= function() {
     return;
   }
   this.temperature -=  1;
+};
+
+Thermostat.prototype.maxTemperature = function () {
+  return this.temperature == this.MAXIMUM_TEMPERATURE_PSM
 };
 
 Thermostat.prototype.isMinTemperature = function() {

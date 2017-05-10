@@ -27,15 +27,25 @@ describe('Thermostat', function() {
     }
     expect(thermostat.getTemperature()).toEqual(10)
   });
-
+describe('Saving mod on', function() {
   it('checks if saving mod is on ', function() {
     thermostat.powerSavingOn();
     expect(thermostat.powerSave).toBe(true);
   });
 
+  it('checks the temperature is at 25 degrees', function(){
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.getTemperature()).toEqual(25);
+  });
+});
+
+describe('Saving mod off', function() {
   it('checks if saving mod is off ', function() {
     thermostat.powerSavingOff();
     expect(thermostat.powerSave).toBe(false);
-  })
+  });
+});
 
 });
