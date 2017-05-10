@@ -27,4 +27,9 @@ describe('Thermostat', function() {
     }
     expect(thermostat.getTemperature()).toEqual(10)
   });
+
+  it('checks if saving mod is on ', function() {
+    thermostat.powerSavingOn();
+    expect(thermostat.powerSave).toBe(true);
+  })
 });
