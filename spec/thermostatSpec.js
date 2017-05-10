@@ -31,5 +31,11 @@ describe('Thermostat', function() {
   it('checks if saving mod is on ', function() {
     thermostat.powerSavingOn();
     expect(thermostat.powerSave).toBe(true);
+  });
+
+  it('checks if saving mod is off ', function() {
+    thermostat.powerSavingOff();
+    expect(thermostat.powerSave).toBe(false);
   })
+
 });
