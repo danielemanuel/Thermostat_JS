@@ -40,7 +40,7 @@ describe('Thermostat', function() {
       expect(thermostat.powerSave).toBe(true);
     });
 
-    it('checks the temperature is at 25 degrees', function(){
+    it('has the temperature is at 25 degrees when PSM is on', function(){
       for (var i = 0; i < 6; i++) {
         thermostat.up();
       }
@@ -62,5 +62,16 @@ describe('Thermostat', function() {
       expect(thermostat.getTemperature()).toEqual(32);
     });
   });
+
+  describe('Energy usage', function() {
+      it('shows low usage of energy, temperature < 18 degrees', function() {
+        for(var i = 0; i < 3 ; i++){
+          thermostat.down();
+        }
+        expect(thermostat.energyUsage()).toEqual('low usage');
+      })
+
+
+  })
 
 });
