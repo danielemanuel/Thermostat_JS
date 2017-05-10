@@ -33,7 +33,7 @@ Thermostat.prototype.maxTemperature = function () {
   }
   return this.temperature === this.MAXIMUM_TEMPERATURE_PSM_OFF
 };
-  
+
 Thermostat.prototype.isMinTemperature = function() {
   return this.temperature === this.MINIMUM_TEMPERATURE;
 };
