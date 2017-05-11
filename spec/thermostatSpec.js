@@ -68,7 +68,7 @@ describe('Thermostat', function() {
         for(var i = 0; i < 3 ; i++){
           thermostat.down();
         }
-        expect(thermostat.energyUsage()).toEqual('low usage');
+        expect(thermostat.energyUsage()).toEqual('low');
       });
 
       it('shows maximum usage of energy, temperature > 25 degrees', function() {
@@ -76,11 +76,11 @@ describe('Thermostat', function() {
         for(var i = 0; i < 6 ; i++){
           thermostat.up();
         }
-        expect(thermostat.energyUsage()).toEqual('high usage');
+        expect(thermostat.energyUsage()).toEqual('high');
       });
 
       it('shows medium usage of energy, temp between 25 && 18 ', function() {
-        expect(thermostat.energyUsage()).toEqual('medium usage');
+        expect(thermostat.energyUsage()).toEqual('medium');
       });
 
 

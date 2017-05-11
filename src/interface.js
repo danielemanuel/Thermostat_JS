@@ -21,24 +21,25 @@ $(document).ready(function() {
 
   $('#power-saving-on').click(function() {
     thermostat.powerSavingOn();
-    $('#power-saving-on').text('on')
+    $('#power-saving-on').text('on');
     updateTemperature();
-  })
+  });
 
   $('#power-saving-off').click(function() {
     thermostat.powerSavingOff();
-    $('#power-saving-off').text('off')
+    $('#power-saving-off').text('off');
     updateTemperature();
-  })
-  function updateTemperature() {
-    $('#temperature').text(thermostat.temperature);
-  };
+  });
 
   function updateTemperature() {
   $('#temperature').text(thermostat.temperature);
-  if(thermostat.energyUsage() === 'low usage') {
+ };
+
+ function updateTemperature() {
+  $('#temperature').text(thermostat.temperature);
+  if(thermostat.energyUsage() === 'low') {
     $('#temperature').css('color', 'green')
-  } else if(thermostat.energyUsage() === 'medium usage') {
+  } else if(thermostat.energyUsage() === 'medium') {
     $('#temperature').css('color', 'black')
   } else {
     $('#temperature').css('color', 'red')
