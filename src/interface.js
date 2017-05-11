@@ -31,18 +31,8 @@ $(document).ready(function() {
     updateTemperature();
   });
 
-  function updateTemperature() {
-  $('#temperature').text(thermostat.temperature);
- };
-
  function updateTemperature() {
-  $('#temperature').text(thermostat.temperature);
-  if(thermostat.energyUsage() === 'low') {
-    $('#temperature').css('color', 'green')
-  } else if(thermostat.energyUsage() === 'medium') {
-    $('#temperature').css('color', 'black')
-  } else {
-    $('#temperature').css('color', 'red')
-  }
-}
+   $('#temperature').text(thermostat.temperature);
+   $('#temperature').attr('class', thermostat.energyUsage());
+ }
 });
