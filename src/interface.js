@@ -8,19 +8,18 @@ $(document).ready(function() {
     var city = $('#current-city').val();
 
     displayWeather(city);
-        debugger;
   });
 
   function displayWeather(city) {
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
-    var token = '&appid=AIzaSyBmojkscRaRaL0sNyyG0BqolpKdQebuJik';
+    var token = '&APPID=650c8439d8d5cb38cb74c66ab402ac74';
     var units = '&units=metric';
     $.get(url + token + units, function(data) {
       console.log("got here")
      $('#current-temperature').text(data.main.temp);
     })
-    debugger;
   };
+
 
   $('#temperature-up').click(function() {
     thermostat.up();
