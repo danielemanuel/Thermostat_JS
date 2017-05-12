@@ -1,10 +1,11 @@
 require 'sinatra'
 
+
 class Thermostat < Sinatra::Base
+set :public_folder, 'public'
 
 	get '/' do
-		headers{Access-Control-Allow-Origin} => '*'
-		
+		redirect '/index.html'
 	end
 
 	post '/temperature' do
