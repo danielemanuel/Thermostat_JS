@@ -5,8 +5,18 @@
     </head>
     <body>
       <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <srcipt src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="src/thermostat.js"></script>
+      <script src='src/interface.js'></script>
       <link rel="stylesheet" type="text/css" href="./styles/colorinterface.css">
+      <section>
+        <span id= 'ajax-temperature'> 10 </span>
+        <form>
+            <input  type='submit' value= "Submit Temperatue" >
+            <input id='city' type='text' placeholder= "Enter city"></input>
+        </form>
+      </section>
+
       <section>
       <h1 id="temperature"></h1>
       <p>
@@ -20,6 +30,5 @@
         </div>
       </p>
      </section>
-        <script src='src/interface.js'></script>
     </body>
 </html>
