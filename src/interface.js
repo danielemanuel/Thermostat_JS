@@ -4,12 +4,15 @@ $(document).ready(function() {
   var thermostat = new Thermostat();
   updateTemperature();
 
-  $('#city-weather').submit(function(){
-    var city = $('#city').val();
-    var weather = lookupWeather(city);
-    // console.log(weather);
-    // $('#ajax-temperature').text(weather.responseJSON.main.temp);
+
+  $('#select-city').submit(function(event) {
+  event.preventDefault();
+  var city = $('#current-city').val();
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=AIzaSyBmojkscRaRaL0sNyyG0BqolpKdQebuJik', function(data) {
+    $('#current-temperature').text(data.main.temp);
   });
+});
+
 
   $('#temperature-up').click(function() {
     thermostat.up();
@@ -43,13 +46,12 @@ $(document).ready(function() {
    $('#temperature').attr('class', thermostat.energyUsage());
  }
 
- function lookupWeather(city) {
-  var url = 'http://api.openweathermap.org/data/2.5/weather?q=';
-  var token = '&APPID=f180ca4ce410541755d28824b3c2f10d';
-  console.log(city)
-  return $.get(url + city + token, function(data) {
-    $('#ajax-temperature').text(data.main.temp);
-  });
- }
-
+ function displayWeather(city) {
+ var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
+ var token = '&appid=AIzaSyBmojkscRaRaL0sNyyG0BqolpKdQebuJik';
+ var units = '&units=metric';
+ $.get(url + token + units, function(data) {
+   $('#current-temperature').text(data.main.temp);
+ });
+}
 });
