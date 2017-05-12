@@ -2,12 +2,21 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
   updateTemperature();
+  $('#current-temperature').text(displayWeather($.session.get("city"));
+  
+  function postFormData() {
+    $.ajax({
+      type:'POST',
+      data:dataString,
+      url:'/city/new',
+    });
+  }
 
   $('#select-city').submit(function(event) {
     event.preventDefault();
-    var city = $('#current-city').val();
-
+    var city = $('#current_city').val();
     displayWeather(city);
+    postFormData();
   });
 
   function displayWeather(city) {
